@@ -30,9 +30,5 @@ do_wyszukania = input()
 print("Nazwa pliku w którym chcesz wyszukać:")
 nazwa_pliku = input()
 
-wyszukiwanie_slow(do_wyszukania, sonet42)
-plik = open("sonety/sonet42.txt","r")
-wyszukiwanie_slow(do_wyszukania, plik.readlines())
-
-if not plik.closed:
-    plik.close()
+with open(nazwa_pliku,"r") as plik:
+    wyszukiwanie_slow(do_wyszukania, plik.readlines())
